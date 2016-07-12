@@ -25,23 +25,23 @@ defmodule Day1_1 do
 
   def resolve(input) do
     [h|tail] = String.codepoints(input)
-    resolveInternal(h, tail, 0)
+    resolve_internal(h, tail, 0)
   end
 
-  defp resolveInternal("(", [], acc) do
+  defp resolve_internal("(", [], acc) do
     acc+1
   end
 
-  defp resolveInternal(")", [], acc) do
+  defp resolve_internal(")", [], acc) do
     acc-1
   end
 
-  defp resolveInternal("(", [h|tail], acc) do
-    resolveInternal(h, tail, acc+1)
+  defp resolve_internal("(", [h|tail], acc) do
+    resolve_internal(h, tail, acc+1)
   end
 
-  defp resolveInternal(")", [h|tail], acc) do
-    resolveInternal(h, tail, acc-1)
+  defp resolve_internal(")", [h|tail], acc) do
+    resolve_internal(h, tail, acc-1)
   end
 
 end

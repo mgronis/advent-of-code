@@ -16,31 +16,31 @@ defmodule Day1_2 do
 
   def resolve(input) do
     [h|tail] = String.codepoints(input)
-    resolveInternal(h, tail, 0, 1)
+    resolve_internal(h, tail, 0, 1)
   end
 
-  defp resolveInternal("(", [], _floor, _acc) do
+  defp resolve_internal("(", [], _floor, _acc) do
     -1
   end
 
-  defp resolveInternal(")", [_h|_tail], floor, acc) when floor == 0 do
+  defp resolve_internal(")", [_h|_tail], floor, acc) when floor == 0 do
     acc
   end
 
-  defp resolveInternal(")", [], floor, acc) when floor == 0 do
+  defp resolve_internal(")", [], floor, acc) when floor == 0 do
     acc
   end
 
-  defp resolveInternal(")", [], _floor, _acc) do
+  defp resolve_internal(")", [], _floor, _acc) do
     -1
   end
 
-  defp resolveInternal("(", [h|tail], floor, acc) do
-    resolveInternal(h, tail, floor+1, acc+1)
+  defp resolve_internal("(", [h|tail], floor, acc) do
+    resolve_internal(h, tail, floor+1, acc+1)
   end
 
-  defp resolveInternal(")", [h|tail], floor, acc) do
-    resolveInternal(h, tail, floor-1, acc+1)
+  defp resolve_internal(")", [h|tail], floor, acc) do
+    resolve_internal(h, tail, floor-1, acc+1)
   end
 
 end
