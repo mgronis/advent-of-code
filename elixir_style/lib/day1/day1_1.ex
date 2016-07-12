@@ -28,19 +28,19 @@ defmodule Day1_1 do
     resolveInternal(h, tail, 0)
   end
 
-  def resolveInternal("(", [], acc) do
+  defp resolveInternal("(", [], acc) do
     acc+1
   end
 
-  def resolveInternal(")", [], acc) do
+  defp resolveInternal(")", [], acc) do
     acc-1
   end
 
-  def resolveInternal("(", [h|tail], acc) do
+  defp resolveInternal("(", [h|tail], acc) do
     resolveInternal(h, tail, acc+1)
   end
 
-  def resolveInternal(")", [h|tail], acc) do
+  defp resolveInternal(")", [h|tail], acc) do
     resolveInternal(h, tail, acc-1)
   end
 
