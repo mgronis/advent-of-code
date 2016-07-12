@@ -1,4 +1,5 @@
 defmodule Day1_1 do
+  import Day1_Constants
 
   # Santa is trying to deliver presents in a large apartment building,
   # but he can't find the right floor - the directions he got are a little
@@ -17,6 +18,10 @@ defmodule Day1_1 do
   #    ))((((( also results in floor 3.
   #    ()) and ))( both result in floor -1 (the first basement level).
   #    ))) and )())()) both result in floor -3.
+
+  def resolve do
+    resolve(santas_ride)
+  end
 
   def resolve(input) do
     [h|tail] = String.codepoints(input)
