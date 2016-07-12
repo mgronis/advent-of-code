@@ -18,5 +18,25 @@ defmodule Day1_1 do
   #    ()) and ))( both result in floor -1 (the first basement level).
   #    ))) and )())()) both result in floor -3.
 
+  def resolve(input) do
+    [h|tail] = String.codepoints(input)
+    resolveInternal(h, tail, 0)
+  end
+
+  def resolveInternal("(", [], acc) do
+    acc+1
+  end
+
+  def resolveInternal(")", [], acc) do
+    acc-1
+  end
+
+  def resolveInternal("(", [h|tail], acc) do
+    resolveInternal(h, tail, acc+1)
+  end
+
+  def resolveInternal(")", [h|tail], acc) do
+    resolveInternal(h, tail, acc-1)
+  end
 
 end
