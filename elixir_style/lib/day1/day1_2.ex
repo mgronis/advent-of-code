@@ -10,6 +10,9 @@ defmodule Day1_2 do
   #  ) causes him to enter the basement at character position 1.
   #  ()()) causes him to enter the basement at character position 5.
 
+  # What is the position of the character that causes Santa to first enter the
+  # basement?
+
   def resolve do
     resolve(santas_ride)
   end

@@ -19,6 +19,8 @@ defmodule Day1_1 do
   #    ()) and ))( both result in floor -1 (the first basement level).
   #    ))) and )())()) both result in floor -3.
 
+  # To what floor do the instructions take Santa?
+
   def resolve do
     resolve(santas_ride)
   end
