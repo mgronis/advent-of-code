@@ -30,6 +30,7 @@ defmodule Day2_1 do
   def calculate_with_file(filename) do
     read_file(filename)
     |> create_list_of_sides
+    |> Enum.map(fn(list) -> Enum.sort(list) end)
     |> Enum.map(fn(sides) -> wrapping_paper_for_one_present(sides) end)
     |> Enum.reduce(0, fn (x, acc) -> x + acc end)
   end
@@ -51,28 +52,8 @@ defmodule Day2_1 do
     wrapping_paper_for_one_present(a, b, c)
   end
 
-  def wrapping_paper_for_one_present(a, b, c) when a <= b and b <= c do
-    2 * (a*b + a*c + c*b) + extra_wrapping_paper(a, b)
-  end
-
-  def wrapping_paper_for_one_present(a, b, c) when a <= c and b <= c do
-    2 * (a*b + a*c + c*b) + extra_wrapping_paper(a, b)
-  end
-
-  def wrapping_paper_for_one_present(a, b, c) when b <= c and c <= a do
-    2 * (a*b + a*c + c*b) + extra_wrapping_paper(b, c)
-  end
-
-  def wrapping_paper_for_one_present(a, b, c) when a <= c and c <= b do
-    2 * (a*b + a*c + c*b) + extra_wrapping_paper(a, c)
-  end
-
-  def wrapping_paper_for_one_present(a, b, c) when c <= a and b <= a do
-    2 * (a*b + a*c + c*b) + extra_wrapping_paper(b, c)
-  end
-
-  def wrapping_paper_for_one_present(a, b, c) when a <= b and c <= a do
-    2 * (a*b + a*c + c*b) + extra_wrapping_paper(a, c)
+  def wrapping_paper_for_one_present(a, b, c) do
+      2 * (a*b + a*c + c*b) + extra_wrapping_paper(a, b)
   end
 
   def extra_wrapping_paper(x, y) do

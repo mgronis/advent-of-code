@@ -10,24 +10,8 @@ defmodule Day2_1_Test do
     assert wrapping_paper_for_one_present(2, 3, 4) == 58
   end
 
-  test "calculate wrapping paper for one non cube shaped present 2" do
-    assert wrapping_paper_for_one_present(2, 4, 3) == 58
-  end
-
-  test "calculate wrapping paper for one non cube shaped present 3" do
-    assert wrapping_paper_for_one_present(3, 4, 2) == 58
-  end
-
   test "calculate wrapping paper for one non cube shaped present 4" do
     assert wrapping_paper_for_one_present(3, 2, 4) == 58
-  end
-
-  test "calculate wrapping paper for one non cube shaped present 5" do
-    assert wrapping_paper_for_one_present(4, 3, 2) == 58
-  end
-
-  test "calculate wrapping paper for one non cube shaped present 6" do
-    assert wrapping_paper_for_one_present(4, 2, 3) == 58
   end
 
   test "read test input" do
@@ -39,10 +23,10 @@ defmodule Day2_1_Test do
   end
 
   test "calculate wrapping paper for one present from list input" do
-    assert wrapping_paper_for_one_present([4, 2, 3]) == 58
+    assert wrapping_paper_for_one_present([2, 3, 4]) == 58
   end
 
-  test "calculate wit test file" do
+  test "calculate with test file" do
     assert calculate_with_file("lib/day2/input_for_tests") == 4663
   end
 
