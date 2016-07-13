@@ -30,4 +30,8 @@ defmodule Day2_1_Test do
     assert wrapping_paper_for_one_present(4, 2, 3) == 32
   end
 
+  test "read test input" do
+    assert read_file("lib/day2/input_for_tests") == "29x13x26\n11x11x14\n27x2x5\n"
+  end
+
 end

@@ -23,6 +23,11 @@ defmodule Day2_1 do
   # All numbers in the elves' list are in feet. How many total square feet of
   # wrapping paper should they order?
 
+  def read_file(filename) do
+    {:ok, data} = File.open(filename, [:read], fn(file) -> IO.read(file, :all) end)
+    data
+  end
+
   def wrapping_paper_for_one_present(a, b, c) when a <= b and b <= c do
     a*b + a*c + c*b + extra_wrapping_paper(a, b)
   end
