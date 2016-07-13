@@ -24,31 +24,31 @@ defmodule Day2_1 do
   # wrapping paper should they order?
 
   def wrapping_paper_for_one_present(a, b, c) when a <= b and b <= c do
-    a * b + a * c + c * b + extra_wrapping_paper(a, b)
+    a*b + a*c + c*b + extra_wrapping_paper(a, b)
   end
 
   def wrapping_paper_for_one_present(a, b, c) when a <= c and b <= c do
-    a * b + a * c + c * b + extra_wrapping_paper(a, b)
+    a*b + a*c + c*b + extra_wrapping_paper(a, b)
   end
 
   def wrapping_paper_for_one_present(a, b, c) when b <= c and c <= a do
-    a * b + a * c + c * b + extra_wrapping_paper(b, c)
+    a*b + a*c + c*b + extra_wrapping_paper(b, c)
   end
 
   def wrapping_paper_for_one_present(a, b, c) when a <= c and c <= b do
-    a * b + a * c + c * b + extra_wrapping_paper(a, c)
+    a*b + a*c + c*b + extra_wrapping_paper(a, c)
   end
 
   def wrapping_paper_for_one_present(a, b, c) when c <= a and b <= a do
-    a * b + a * c + c * b + extra_wrapping_paper(b, c)
+    a*b + a*c + c*b + extra_wrapping_paper(b, c)
   end
 
   def wrapping_paper_for_one_present(a, b, c) when a <= b and c <= a do
-    a * b + a * c + c * b + extra_wrapping_paper(a, c)
+    a*b + a*c + c*b + extra_wrapping_paper(a, c)
   end
 
-  def extra_wrapping_paper(a, b) do
-    a * b
+  def extra_wrapping_paper(x, y) do
+    x*y
   end
 
 end
