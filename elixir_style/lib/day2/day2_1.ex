@@ -28,6 +28,10 @@ defmodule Day2_1 do
     data
   end
 
+  def create_list_of_sides(string_input) do
+    String.split(string_input, "\n", trim: true) |> Enum.map(fn(str) -> String.split(str, "x") end)
+  end
+
   def wrapping_paper_for_one_present(a, b, c) when a <= b and b <= c do
     a*b + a*c + c*b + extra_wrapping_paper(a, b)
   end

@@ -34,4 +34,8 @@ defmodule Day2_1_Test do
     assert read_file("lib/day2/input_for_tests") == "29x13x26\n11x11x14\n27x2x5\n"
   end
 
+  test "create list of input from file" do
+    assert create_list_of_sides("29x13x26\n11x11x14\n27x2x5\n") == [["29", "13", "26"],["11", "11", "14"],["27", "2", "5"]]
+  end
+
 end
