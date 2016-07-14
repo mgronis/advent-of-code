@@ -21,4 +21,12 @@ defmodule Day2_2 do
 
   # How many total feet of ribbon should they order?
 
+  def feet_of_ribbon_for_present(a, b, c) do
+    2*a + 2*b + feet_of_ribbon_for_bow(a, b, c)
+  end
+
+  def feet_of_ribbon_for_bow(a, b, c) do
+    a*b*c
+  end
+
 end
