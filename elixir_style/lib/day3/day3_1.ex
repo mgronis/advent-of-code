@@ -27,7 +27,7 @@ defmodule Day3_1 do
 
   def move_according_to_file(filename) do
     read_file(filename)
-    |> String.trim 
+    |> String.trim
     |> String.codepoints
     |> move({0, 0}, %{{0, 0} => 1})
     |> Map.to_list
@@ -62,6 +62,5 @@ defmodule Day3_1 do
   def update_map(map, pos) do
     Map.update(map, pos, 1, &(&1 + 1))
   end
-
 
 end
