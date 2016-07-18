@@ -20,4 +20,22 @@ defmodule Day4_1 do
 
   # Your puzzle input is iwrupvqb.
 
+   use Bitwise
+   
+   def func_f(b, c, d) do
+      (b &&& c) ^^^ (~~~b &&& d)
+   end
+
+   def func_g(b, c, d) do
+      (b &&& d) ^^^ (c &&& ~~~d)
+   end
+
+   def func_h(b, c, d) do
+      bxor(b, bxor(c, d))
+   end
+
+   def func_i(b, c, d) do
+      bxor(c, (b ^^^ ~~~d))
+   end
+
 end
