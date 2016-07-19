@@ -18,4 +18,16 @@ defmodule Day4_1_Test do
     assert func_i(5, 2, -2) == 6
   end
 
+  test "append padding to one character message" do
+    assert append_padding_bits("k", 440) == <<107 :: size(8), 128 :: size(8), 0 :: size(432)>>
+  end
+  
+  test "append padding one character short of 448 bits" do
+    assert append_padding_bits(<<1 :: size(440)>>, 8) == <<1 :: size(440), 128 :: size(8)>>
+  end
+
+  test "append padding to message of 448 bits" do
+    assert append_padding_bits(<<1 :: size(448)>>, 0) == <<1 :: size(448), 128 :: size(8), 0 :: size(504)>>
+  end
+
 end

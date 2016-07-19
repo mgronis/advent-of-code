@@ -20,22 +20,40 @@ defmodule Day4_1 do
 
   # Your puzzle input is iwrupvqb.
 
-   use Bitwise
+  use Bitwise
+
+  def add_padding_and_length(str) do
+    with_padding = append_padding_bits(str, 448 - bit_size(str))
+    append_length(bit_size(str), with_padding)
+  end
+
+  def append_padding_bits(str, bits_to_append) when bits_to_append > 0 do
+    extra_zeroes = bits_to_append-8
+    str <> <<128 :: size(8)>> <> <<0 :: size(extra_zeroes)>>
+  end
+
+  def append_padding_bits(str, bits_to_append) do
+    extra_zeroes = 512-bits_to_append-8
+    str <> <<128 :: size(8)>> <> <<0 :: size(extra_zeroes)>>
+  end
+
+  def append_length(length, message) do
+  end
    
-   def func_f(b, c, d) do
-      (b &&& c) ^^^ (~~~b &&& d)
-   end
+  def func_f(b, c, d) do
+    (b &&& c) ^^^ (~~~b &&& d)
+  end
 
-   def func_g(b, c, d) do
-      (b &&& d) ^^^ (c &&& ~~~d)
-   end
+  def func_g(b, c, d) do
+    (b &&& d) ^^^ (c &&& ~~~d)
+  end
 
-   def func_h(b, c, d) do
-      bxor(b, bxor(c, d))
-   end
+  def func_h(b, c, d) do
+    bxor(b, bxor(c, d))
+  end
 
-   def func_i(b, c, d) do
-      bxor(c, (b ^^^ ~~~d))
-   end
+  def func_i(b, c, d) do
+    bxor(c, (b ^^^ ~~~d))
+  end
 
 end
