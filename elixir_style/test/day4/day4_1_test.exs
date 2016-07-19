@@ -30,4 +30,12 @@ defmodule Day4_1_Test do
     assert append_padding_bits(<<1 :: size(448)>>, 0) == <<1 :: size(448), 128 :: size(8), 0 :: size(504)>>
   end
 
+  test "append length to message" do
+    assert append_length(8, "k") == <<107 :: size(8), 8 :: size(64)>>
+  end
+
+  test "append length larger than field can hold to message" do
+    assert append_length((:math.pow(2, 64) |> round) + 1, "k") == <<107 :: size(8), 1 :: size(64)>>
+  end
+
 end

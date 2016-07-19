@@ -37,7 +37,10 @@ defmodule Day4_1 do
     str <> <<128 :: size(8)>> <> <<0 :: size(extra_zeroes)>>
   end
 
-  def append_length(length, message) do
+  def append_length(length_of_message, message) do
+    max_value_for_field = :math.pow(2, 64)
+    value_to_append = rem(length_of_message, max_value_for_field |> round)
+    message <> <<value_to_append :: size(64)>>
   end
    
   def func_f(b, c, d) do
