@@ -20,43 +20,16 @@ defmodule Day4_1 do
 
   # Your puzzle input is iwrupvqb.
 
-  use Bitwise
-
-  def add_padding_and_length(str) do
-    with_padding = append_padding_bits(str, 448 - bit_size(str))
-    append_length(bit_size(str), with_padding)
+  def calculate do
+    calculate "iwrupvqb", 1
   end
 
-  def append_padding_bits(str, bits_to_append) when bits_to_append > 0 do
-    extra_zeroes = bits_to_append-8
-    str <> <<128 :: size(8)>> <> <<0 :: size(extra_zeroes)>>
+  def calculate(str, number, "00000" <> _tail) do
+    number-1
   end
 
-  def append_padding_bits(str, bits_to_append) do
-    extra_zeroes = 512-bits_to_append-8
-    str <> <<128 :: size(8)>> <> <<0 :: size(extra_zeroes)>>
-  end
-
-  def append_length(length_of_message, message) do
-    max_value_for_field = :math.pow(2, 64)
-    value_to_append = rem(length_of_message, max_value_for_field |> round)
-    message <> <<value_to_append :: size(64)>>
-  end
-   
-  def func_f(b, c, d) do
-    (b &&& c) ^^^ (~~~b &&& d)
-  end
-
-  def func_g(b, c, d) do
-    (b &&& d) ^^^ (c &&& ~~~d)
-  end
-
-  def func_h(b, c, d) do
-    bxor(b, bxor(c, d))
-  end
-
-  def func_i(b, c, d) do
-    bxor(c, (b ^^^ ~~~d))
+  def calculate(str, number, _hash \\ "") do
+    calculate str, number+1, :crypto.hash(:md5, str <> Integer.to_string(number) ) |> Base.encode16
   end
 
 end
