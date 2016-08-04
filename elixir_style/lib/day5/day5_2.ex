@@ -27,26 +27,22 @@ defmodule Day5_2 do
   # How many strings are nice under these new rules?
 
   @pairs for n <- ?a..?z, m <- ?a..?z, do: to_string [n, m]
-  @tripples for n <- ?a..?z, do: to_string [n, n, n]
   @splitted_pairs for n <- ?a..?z, m <- ?a..?z, do: to_string [n, m, n]
 
   def search do
     File.read!("lib/day5/input")
-    |> String.split("\n")
+    |> String.split("\n", trim: true)
     |> Enum.filter(fn(str)->is_nice(str) end)
     |> Enum.count()
   end
 
   def is_nice(str) do
-    is_pairs(str) && !is_tripple(str) && is_splitted_pair(str)
+    is_pairs(str) && is_splitted_pair(str)
   end
 
   def is_pairs(str) do
-    @pairs |> Enum.filter(fn(x)->String.split(str, x) |> Enum.count() > 2 end) |> Enum.count() > 0
-  end
-
-  def is_tripple(str) do
-    @tripples |> Enum.reduce(false, fn(x, acc)->String.contains?(str, x) || acc end)
+    #@pairs |> Enum.filter(fn(x)->String.split(str, x) |> Enum.count() > 2 end) |> Enum.count() > 0
+    @pairs |> Enum.reduce(false, fn(x, acc)->String.split(str, x) |> Enum.count() > 2 || acc end)
   end
 
   def is_splitted_pair(str) do
