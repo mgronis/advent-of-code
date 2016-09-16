@@ -41,7 +41,6 @@ defmodule Day5_2 do
   end
 
   def is_pairs(str) do
-    #@pairs |> Enum.filter(fn(x)->String.split(str, x) |> Enum.count() > 2 end) |> Enum.count() > 0
     @pairs |> Enum.reduce(false, fn(x, acc)->String.split(str, x) |> Enum.count() > 2 || acc end)
   end
 
