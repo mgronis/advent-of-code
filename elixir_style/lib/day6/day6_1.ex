@@ -27,4 +27,24 @@ defmodule Day6_1 do
 
   # After following the instructions, how many lights are lit?
 
+  @initial_grid for n <- 0..999, m <- 0..999, into: %{}, do: {{n, m}, 0}
+
+  def lights do
+    lights "lib/day6/input"
+  end
+
+  def lights(file_name) do
+    parse_input(file_name)
+  end
+
+  def parse_input(file_name) do
+    File.read!(file_name)
+    |> String.split("\n", trim: true)
+    |> Enum.map(fn(str)->String.split(str, " ", trim: true) end)
+  end
+
+  def get_initial_grid do
+    @initial_grid
+  end
+
 end
