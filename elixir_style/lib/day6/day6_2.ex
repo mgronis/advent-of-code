@@ -23,7 +23,9 @@ defmodule Day6_2 do
   #    turn on 0,0 through 0,0 would increase the total brightness by 1.
   #    toggle 0,0 through 999,999 would increase the total brightness by 2000000.
 
-  @initial_grid for n <- 0..999, m <- 0..999, into: %{}, do: {{n, m}, 0}
+  def get_initial_grid do
+    for n <- 0..999, m <- 0..999, into: %{}, do: {{n, m}, 0}
+  end
 
   def lights do
     lights "lib/day6/input", get_initial_grid
@@ -90,10 +92,6 @@ defmodule Day6_2 do
     String.split(list, split_char, trim: true)
     |> Enum.map(fn(str) -> String.to_integer(str) end)
     |> List.to_tuple()
-  end
-
-  def get_initial_grid do
-    @initial_grid
   end
 
 end

@@ -27,7 +27,10 @@ defmodule Day6_1 do
 
   # After following the instructions, how many lights are lit?
 
-  @initial_grid for n <- 0..999, m <- 0..999, into: %{}, do: {{n, m}, 0}
+
+  def get_initial_grid do
+    for n <- 0..999, m <- 0..999, into: %{}, do: {{n, m}, 0}
+  end
 
   def lights do
     lights "lib/day6/input", get_initial_grid
@@ -91,10 +94,6 @@ defmodule Day6_1 do
     String.split(list, split_char, trim: true)
     |> Enum.map(fn(str) -> String.to_integer(str) end)
     |> List.to_tuple()
-  end
-
-  def get_initial_grid do
-    @initial_grid
   end
 
 end
