@@ -6,10 +6,6 @@ defmodule Day5_2_Test do
     assert is_pairs("hello") == false
   end
 
-  test "aaa is NOT pair" do
-    assert is_pairs("aaa") == false
-  end
-
   test "hellohello is pair" do
     assert is_pairs("hellohe") == true
   end
