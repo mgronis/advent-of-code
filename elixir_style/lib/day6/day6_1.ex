@@ -45,24 +45,15 @@ defmodule Day6_1 do
   end
 
   defp flip([{:on, {from_x, from_y}, {to_x, to_y}} | tail], grid) do
-    new_grid = extract_keys(from_x, from_y, to_x, to_y)
-    |> Enum.reduce(grid, fn(key, acc) -> Map.update(acc, key, 1, fn(_value) -> 1 end) end)
-    flip tail, new_grid
-    #flip tail, update_grid(grid, from_x, from_y, to_x, to_y, fn(_value) -> 1 end)
+    flip tail, update_grid(grid, from_x, from_y, to_x, to_y, fn(_value) -> 1 end)
   end
 
   defp flip([{:off, {from_x, from_y}, {to_x, to_y}} | tail], grid) do
-    new_grid = extract_keys(from_x, from_y, to_x, to_y)
-    |> Enum.reduce(grid, fn(key, acc) -> Map.update(acc, key, 0, fn(_value) -> 0 end) end)
-    flip tail, new_grid
-    #flip tail, update_grid(grid, from_x, from_y, to_x, to_y, fn(_value) -> 0 end)
+    flip tail, update_grid(grid, from_x, from_y, to_x, to_y, fn(_value) -> 0 end)
   end
 
   defp flip([{:toggle, {from_x, from_y}, {to_x, to_y}} | tail], grid) do
-    new_grid = extract_keys(from_x, from_y, to_x, to_y)
-    |> Enum.reduce(grid, fn(key, acc) -> Map.update!(acc, key, fn(value) -> rem(value+1, 2) end) end)
-    flip tail, new_grid
-    #flip tail, update_grid(grid, from_x, from_y, to_x, to_y, fn(value) -> rem(value+1, 2) end)
+    flip tail, update_grid(grid, from_x, from_y, to_x, to_y, fn(value) -> rem(value+1, 2) end)
   end
 
   defp flip([], grid) do
