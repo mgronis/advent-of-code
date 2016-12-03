@@ -15,11 +15,11 @@ defmodule Day2_2_Test do
   end
 
   test "read test input" do
-    assert read_file("test/day2/input_for_tests") == "29x13x26\n11x11x14\n27x2x5\n"
+    assert read_file("test/2015/day2/input_for_tests") == "29x13x26\n11x11x14\n27x2x5\n"
   end
 
   test "calculate with test file" do
-    assert calculate_with_file("test/day2/input_for_tests") == 11902
+    assert calculate_with_file("test/2015/day2/input_for_tests") == 11902
   end
 
 end

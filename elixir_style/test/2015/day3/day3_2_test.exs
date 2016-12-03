@@ -35,7 +35,7 @@ defmodule Day3_2_Test do
   end
 
   test "move with test file" do
-    assert move_according_to_file("test/day3/input_for_tests") == 7
+    assert move_according_to_file("test/2015/day3/input_for_tests") == 7
   end
 
 end

@@ -24,7 +24,7 @@ defmodule Day2_1 do
   # wrapping paper should they order?
 
   def calculate do
-    calculate_with_file("lib/day2/input")
+    calculate_with_file("lib/2015/day2/input")
   end
 
   def calculate_with_file(filename) do

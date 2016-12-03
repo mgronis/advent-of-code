@@ -22,7 +22,7 @@ defmodule Day3_1 do
   #    only 2 houses.
 
   def start_moving do
-    move_according_to_file("lib/day3/input")
+    move_according_to_file("lib/2015/day3/input")
   end
 
   def move_according_to_file(filename) do

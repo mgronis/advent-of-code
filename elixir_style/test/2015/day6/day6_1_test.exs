@@ -3,7 +3,7 @@ defmodule Day6_1_Test do
   import Day6_1
 
   test "parse input form test file" do
-    assert parse_input("test/day6/input_for_tests") ==
+    assert parse_input("test/2015/day6/input_for_tests") ==
       [{:on, {0, 1}, {0, 2}},
       {:off, {1, 1}, {1, 2}},
       {:toggle, {0, 0}, {2, 1}}]

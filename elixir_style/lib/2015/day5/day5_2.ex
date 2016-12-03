@@ -30,7 +30,7 @@ defmodule Day5_2 do
   @splitted_pairs for n <- ?a..?z, m <- ?a..?z, do: to_string [n, m, n]
 
   def search do
-    File.read!("lib/day5/input")
+    File.read!("lib/2015/day5/input")
     |> String.split("\n", trim: true)
     |> Enum.filter(fn(str)->is_nice(str) end)
     |> Enum.count()

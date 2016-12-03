@@ -20,7 +20,7 @@ defmodule Day3_2 do
   #    direction and Robo-Santa going the other.
 
   def start_moving do
-    move_according_to_file("lib/day3/input")
+    move_according_to_file("lib/2015/day3/input")
   end
 
   def move_according_to_file(filename) do

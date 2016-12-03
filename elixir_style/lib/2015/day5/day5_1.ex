@@ -23,7 +23,7 @@ defmodule Day5_1 do
   # How many strings are nice?
 
   def search do
-     search read_file("lib/day5/input")
+     search read_file("lib/2015/day5/input")
   end
 
   def search(input) do

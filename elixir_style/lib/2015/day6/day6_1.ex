@@ -33,7 +33,7 @@ defmodule Day6_1 do
   end
 
   def lights do
-    lights "lib/day6/input", get_initial_grid
+    lights "lib/2015/day6/input", get_initial_grid
   end
 
   def lights(file_name, grid) do
