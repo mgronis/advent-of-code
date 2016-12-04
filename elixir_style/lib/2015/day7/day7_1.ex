@@ -54,4 +54,22 @@ defmodule Day7_1 do
   # In little Bobby's kit's instructions booklet (provided as your puzzle
   # input), what signal is ultimately provided to wire a?
 
+  def solve do
+    solve "a", "lib/2015/day7/input"
+  end
+
+  def solve(lead_name, file_name) do
+    map = parse_input(file_name)
+  end
+
+  def parse_input(file_name) do
+    File.read!(file_name)
+    |> String.split("\n", trim: true)
+    |> Enum.reduce(%{}, fn(str, acc) -> to_map(String.split(str, " -> ", trim: true), acc) end)
+  end
+
+  defp to_map([value, key | _tai], acc) do
+    Map.put(acc, key, String.split(value, " ", trim: true))
+  end
+
 end
