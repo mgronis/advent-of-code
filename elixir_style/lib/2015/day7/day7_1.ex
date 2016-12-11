@@ -101,19 +101,15 @@ defmodule Day7_1 do
   def parse_input(file_name) do
     File.read!(file_name)
     |> String.split("\n", trim: true)
-    |> Enum.reduce(%{}, fn(str, acc) -> to_map(String.split(str, " -> ", trim: true), acc) end)
+    |> Enum.reduce(%{}, fn(str, acc) -> as_map(str, acc) end)
   end
 
-  defp to_map([value, key], acc) do
-    Map.put(acc, key, extract_values(value))
-  end
-
-  defp extract_values(value) do
-     case String.split(value, " ", trim: true) do
-       [value] -> as_value(value)
-       [operator, value] -> [operator, as_value(value)]
-       [value_x, operator, value_y] -> [as_value(value_x), operator, as_value(value_y)]
-     end
+  defp as_map(str, acc) do
+    case String.split(str, " ", trim: true) do
+      [operator, value, "->", key] -> Map.put(acc, key, [operator, as_value(value)])
+      [value_x, operator, value_y, "->", key] -> Map.put(acc, key, [as_value(value_x), operator, as_value(value_y)])
+      [value, "->", key] -> Map.put(acc, key, as_value(value))
+    end
   end
 
   defp as_value(value) do
