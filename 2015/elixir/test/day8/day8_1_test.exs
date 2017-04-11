@@ -10,7 +10,7 @@ defmodule Day8_1_Test do
     assert memory_portion([?", ?\\, ?", ?"], 0) == 3
   end
 
-  test "calculate \xfb" do
+  test "calculate \\xfb" do
     assert memory_portion([?", ?\\, ?x, ?f, ?b, ?"], 0) == 3
   end
 
@@ -18,7 +18,7 @@ defmodule Day8_1_Test do
     assert memory_portion([?", ?\\, ?\\, ?"], 0) == 3
   end
 
-  test "calculate \xfb and \"" do
+  test "calculate \\xfb and \"" do
     assert memory_portion([?", ?\\, ?x, ?f, ?b, ?\\, ?", ?"], 0) == 4
   end
 

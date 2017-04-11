@@ -14,7 +14,7 @@ defmodule Day8_2_Test do
     assert encoding_size([?", ?a, ?a, ?a, ?\\, ?", ?a, ?a, ?a, ?"], 0) == 14
   end
 
-  test "calculate \xfb" do
+  test "calculate \\xfb" do
     assert encoding_size([?", ?\\, ?x, ?f, ?b, ?"], 0) == 9
   end
 
